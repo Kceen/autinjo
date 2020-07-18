@@ -1,0 +1,108 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	background-color: #ffd1a1;
+}
+
+.mainContentContainer {
+	font-family: verdana;
+}
+
+.mainTitle {
+	font-family: verdana;
+	text-align: center;
+	margin: 10px;
+}
+
+.carsContainer {
+	width: 1200px;
+	text-align: left;
+	margin: 0px auto;
+}
+
+.mainCarContainer {
+	background-color: orange;
+	display: inline-block;
+	font-family: verdana;
+	width: 300px;
+	margin: 20px 20px;
+	font-size: 0;
+	border-radius: 5px;
+}
+
+.carThumbnail {
+	width: 300px;
+}
+
+.carTitle {
+	text-align: center;
+	margin-top: 10px;
+	margin-bottom: 5px;
+	font-size: 20px;
+}
+
+.price {
+	font-size: 18px;
+	font-weight: bold;
+	text-align: center;
+	margin-bottom: 10px;
+}
+
+.leftInfoColumn {
+	display: inline-block;
+	width: 50%;
+	text-align: left;
+	font-size: 12px;
+	border-right: 1px solid black;
+	box-sizing: border-box;
+}
+
+.rightInfoColumn {
+	display: inline-block;
+	width: 50%;
+	text-align: left;
+	font-size: 12px;
+}
+
+.infoColumnSpanClass {
+	font-weight: bold;
+}
+
+.infoColumnPClass {
+	border-bottom: 1px solid black;
+	padding: 5px;
+}
+
+.detailsLink {
+	text-decoration: none; 
+	color: black;
+	font-size: 18px;
+}
+
+.detailsLinkContainer {
+	font-weight: bold;
+	text-align: center;
+	padding: 10px 0px;
+	border-top: 2px solid black;	
+}
+
+.mainSearchForm {
+	background-color: lightgray;
+	padding: 10px;
+	text-align: center;
+}
+
+.mainSearchForm form select {
+	margin: 10px 10px;
+}
+
+.searchSubmitButton {
+	font-size: 20px;
+	padding: 10px;
+	font-weight: bold;
+	background-color: orange;
+	border: 1px solid orange;
+} 

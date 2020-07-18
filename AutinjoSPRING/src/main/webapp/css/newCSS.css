@@ -1,0 +1,125 @@
+* {
+	font-family: 'Saira Semi Condensed', sans-serif;
+}
+
+body {
+	
+}
+
+a {
+	color: currentColor;
+}
+
+a:hover {
+	text-decoration: none;
+	color: currentColor;
+}
+
+p {
+	margin-bottom: 0;
+}
+
+.carThumbnail {
+	transition: border 0.2s;
+	transition: width 0.2s;
+}
+
+.carThumbnail:hover {
+	border: 2px solid orange;
+	border-radius: 5px;
+	width: 97%;
+}
+
+.navMainLogo {
+	font-style: italic;
+	font-weight: bold;
+	font-size: 64px;
+	color: white;
+	text-shadow: 3px 3px black;
+}
+
+.footerMainLogo {
+	font-style: italic;
+	font-weight: bold;
+	font-size: 32px;
+	color: white;
+	text-shadow: 2px 2px black;	
+}
+
+#navbar {
+	background-image: linear-gradient(red , orange);
+	border-bottom: 5px solid black;
+}
+
+.filterForm {
+	background-color: orange;
+}
+
+#searchButton {
+	width: 15%;
+}
+
+#mainCarsRow {
+	background-color: gray;
+}
+
+#marka-model {
+	color: white;
+}
+
+#price {
+	color: orange;
+	font-weight: bold;
+}
+
+#footer {
+	border-left: 5px solid orange;
+	border-right: 5px solid orange;
+	border-top: 5px solid orange;
+}
+
+#detailsLink {
+	color: white;
+}
+
+#detailsLink:hover {
+	color: orange;
+}
+
+.mainPriceText {
+	color: orange;
+	font-weight: bold;
+}
+
+#firstContentRow {
+	border-bottom: 5px solid black;
+}
+
+.naslovOsobineVozilaP {
+	font-size: 32px;
+	border-bottom: 1px solid orange;
+}
+
+.osobineVozilaPoljeSpan {
+	font-weight: bold;
+}
+
+#infoAboutUser {
+	border-bottom: 1px solid white;
+	font-size: 24px;
+}
+
+#user_name {
+	font-weight: bold;
+	font-size: 32px;
+}
+
+#userInfoRow {
+	background-color: orange;
+}
+
+#paginationRow {
+	background-color: #343a40;
+	background-image: linear-gradient(gray, #343a40);
+	border-top: 1px solid orange;
+}
