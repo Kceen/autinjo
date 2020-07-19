@@ -1,0 +1,48 @@
+<app-header></app-header>
+
+<div *ngFor="let korisnik of korisnik$">
+    <div class="row p-3" id="userInfoRow">
+        <div class="col-lg-12 text-center">
+            <p class="lead" id="infoAboutUser"> Informacije o prodavcu </p>
+        </div>
+        <div class="col-lg-12 text-center" *ngIf="korisnik.ime">
+            <p class="h1 font-weight-bold mt-3" id="ime"> {{korisnik.ime}} </p>
+        </div>
+        <div class="col-lg-12 text-center">
+            <p class="lead" id="user_name"> {{korisnik.username}} </p>
+        </div>
+
+        <div class="col-lg text-center border-bottom mb-2">
+            <p class="lead"> E-mail - <span class="font-weight-bold"> {{korisnik.email}} </span> </p>
+            <p class="lead"> Lokacija - <span class="font-weight-bold"> {{korisnik.lokacija}} </span> </p>
+            
+            <p *ngIf="!loggedIn" class="lead font-weight-bold text-danger"> Uloguj se da bi video broj telefona prodavca </p>
+            <p *ngIf="loggedIn" p class="lead"> Broj telefona - <span class="font-weight-bold"> {{korisnik.brojTelefona}} </span> </p>
+        </div>
+        <div class="col-lg-12 text-center">
+            <p class="lead" id=""> Svi oglasi prodavca </p>
+        </div>
+    </div>
+</div>
+
+<div class="row" id="mainCarsRow">
+    <div class="row ml-0 mr-0">
+        <div *ngFor="let auto of korisnikAutos | async" class="col-lg-4 text-center border-bottom pb-2"
+            [routerLink]="['/autoDetail', auto.idAutomobil]">
+            <p class="lead" id="marka-model"> {{ auto.marka }} {{ auto.model }} </p>
+            <img src="{{auto.thumbnailPath}}" width="100%" class="carThumbnail">
+            
+            <span class="lead" id="price" *ngIf="auto.cena > 0"> {{auto.cena | number}} € </span>
+            <span class="lead" id="price" *ngIf="auto.cena == 0"> Po dogovoru </span> 
+            <span class="lead" id="price" *ngIf="auto.cena == -1"> Na upit </span> -
+            
+            <span class="lead"> {{auto.kilometraza | number}} km </span> -
+            <span class="lead"> {{auto.gorivo}} </span> -
+            <span class="lead"> {{auto.godiste}} </span>
+            <p class="lead" id="detailsLink">Detaljnije</p>
+
+        </div>
+    </div>
+</div>
+
+<app-footer></app-footer>

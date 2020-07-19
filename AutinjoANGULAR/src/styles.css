@@ -1,0 +1,168 @@
+/* You can add global styles to this file, and also import other style files */
+
+* {
+	font-family: 'Saira Semi Condensed', sans-serif;
+}
+
+a {
+	color: currentColor;
+}
+
+a:hover {
+	text-decoration: none;
+	color: currentColor;
+}
+
+p {
+	margin-bottom: 0;
+}
+
+.carThumbnail {
+	transition: border 0.2s;
+	transition: width 0.2s;
+}
+
+.carThumbnail:hover {
+	border: 2px solid orange;
+	border-radius: 5px;
+	width: 99%;
+	cursor: pointer;
+}
+
+.navMainLogo {
+	font-style: italic;
+	font-weight: bold;
+	font-size: 64px;
+	color: white;
+	text-shadow: 3px 3px black;
+}
+
+.navMainLogoLogin {
+	font-style: italic;
+	font-weight: bold;
+	font-size: 100px;
+	color: white;
+	text-shadow: 6px 6px black;
+}
+
+.navMainLogo:hover {
+	cursor: pointer;
+}
+
+.footerMainLogo {
+	font-style: italic;
+	font-weight: bold;
+	font-size: 32px;
+	color: white;
+	text-shadow: 2px 2px black;	
+}
+
+.footerMainLogo:hover {
+	cursor: pointer;
+}
+
+#navbar {
+	background-image: linear-gradient(red , orange);
+	border-bottom: 5px solid black;
+}
+
+.filterForm {
+	background-image: linear-gradient(orange, #ffe330);
+}
+
+#searchButton {
+	width: 15%;
+}
+
+#mainCarsRow {
+	background-color: gray;
+}
+
+#marka-model {
+	color: white;
+}
+
+#price {
+	color: orange;
+	font-weight: bold;
+}
+
+#footer {
+	border-left: 5px solid orange;
+	border-right: 5px solid orange;
+	border-top: 5px solid orange;
+}
+
+#detailsLink {
+	color: white;
+}
+
+#detailsLink:hover {
+	color: orange;
+	cursor: pointer;
+}
+
+.mainPriceText {
+	color: orange;
+	font-weight: bold;
+}
+
+#firstContentRow {
+	border-bottom: 5px solid black;
+}
+
+.naslovOsobineVozilaP {
+	font-size: 32px;
+	border-bottom: 1px solid orange;
+}
+
+.osobineVozilaPoljeSpan {
+	font-weight: bold;
+}
+
+#infoAboutUser {
+	border-bottom: 1px solid white;
+	font-size: 24px;
+}
+
+#user_name {
+	font-weight: bold;
+	font-size: 32px;
+}
+
+#userInfoRow {
+	background-color: orange;
+}
+
+#paginationRow {
+	background-color: #343a40;
+	background-image: linear-gradient(gray, #343a40);
+	border-top: 1px solid orange;
+}
+
+.page-item:hover {
+	cursor: pointer;
+}
+
+#userLink:hover {
+	cursor: pointer;
+	border-bottom: 5px solid orange;
+	transition: border 0.5s;
+}
+
+.form-control.ng-invalid.ng-touched {
+    border-left: 5px solid red;
+    border-bottom: 1px solid red;
+    transition: border 0.5s;
+}
+
+.form-control.ng-valid {
+    border-left: 5px solid green;
+    border-bottom: 1px solid green;
+    transition: border 0.5s;
+}
+
+#loginFormDiv {
+	background-image: linear-gradient(orange, yellow);
+	padding: 25px;
+}

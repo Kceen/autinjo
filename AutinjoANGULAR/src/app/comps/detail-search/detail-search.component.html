@@ -1,0 +1,181 @@
+<!-- SEARCH FORM -->
+
+<div class="row">
+    <form class="filterForm p-3" style="width: 100%" #form="ngForm" (ngSubmit)="onSubmit(form)">
+        <div class="row align-items-center">
+            <div class="col-lg-4 col-sm-6">
+                <div class="form-group">
+                    <label for="marka">Marka</label>
+                    <select class="form-control" id="marka" name="marka" ngModel #marka="ngModel">
+                        <option disabled>Izaberi marku</option>
+                        <option>Sve</option>
+                        <option *ngFor="let brand of allBrands"> {{ brand }} </option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-lg-4 col-sm-6">
+                <div class="form-group">
+                    <label for="model">Model</label>
+                    <input type="text" class="form-control" id="model" name="model" ngModel #model="ngModel">
+                </div>
+            </div>
+            <div class="col-lg-2 col-sm-6">
+                <div class="form-group">
+                    <label for="cenaOd">Cena od</label>
+                    <input type="number" class="form-control" id="cenaOd" min="0" step="10" name="cenaOd" ngModel
+                        #cenaOd="ngModel">
+                </div>
+            </div>
+            <div class="col-lg-2 col-sm-6">
+                <div class="form-group">
+                    <label for="cenaDo">Cena do</label>
+                    <input type="number" class="form-control" id="cenaDo" min="0" step="10" name="cenaDo" ngModel
+                        #cenaDo="ngModel">
+                </div>
+            </div>
+
+        </div>
+
+
+        <div class="row align-items-center">
+            <div class="col-lg-2 col-sm-6">
+                <div class="form-group">
+                    <label for="godisteOd">Godište od</label>
+                    <input type="number" class="form-control" id="godisteOd" min="1900" max="2020" name="godisteOd"
+                        ngModel #godisteOd="ngModel">
+                </div>
+            </div>
+            <div class="col-lg-2 col-sm-6">
+                <div class="form-group">
+                    <label for="godisteDo">Godište do</label>
+                    <input type="number" class="form-control" id="godisteDo" min="1900" max="2020" name="godisteDo"
+                        ngModel #godisteDo="ngModel">
+                </div>
+            </div>
+            <div class="col-lg-4 col-sm-6">
+                <div class="form-group">
+                    <label for="gorivo">Gorivo</label>
+                    <select class="form-control" id="gorivo" name="gorivo" ngModel #gorivo="ngModel">
+                        <option disabled="" selected="">Izaberi gorivo</option>
+                        <option>Sve</option>
+                        <option>Benzin</option>
+                        <option>Dizel</option>
+                        <option>Benzin + Gas(TNG)</option>
+                        <option>Metan CNG</option>
+                        <option>Električni pogon</option>
+                        <option>Hibridni pogon</option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-lg-4 col-sm-6">
+                <div class="form-group">
+                    <label for="model">Stanje</label>
+                    <select class="form-control" id="stanje" name="stanje" ngModel #stanje="ngModel">
+                        <option disabled="" selected="">Izaberi stanje</option>
+                        <option>Sve</option>
+                        <option>Novo vozilo</option>
+                        <option>Polovno vozilo</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="row align-items-center">
+
+            <div class="col-lg-4 col-sm-6">
+                <div class="form-group">
+                    <label for="karoserija">Karoserija</label>
+                    <select class="form-control" id="karoserija" name="karoserija" ngModel #karoserija="ngModel">
+                        <option disabled="" selected="">Izaberi karoseriju</option>
+                        <option>Sve</option>
+                        <option>Limuzina</option>
+                        <option>Hečbek</option>
+                        <option>Karavan</option>
+                        <option>Kupe</option>
+                        <option>Kabriolet/Roadster</option>
+                        <option>Monovolumen(Minivan)</option>
+                        <option>Džip/SUV</option>
+                        <option>Pickup</option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-lg-4 col-sm-6">
+                <div class="form-group">
+                    <label for="karoserija">Zamena</label>
+                    <select class="form-control" id="zamena" name="zamena" ngModel #zamena="ngModel">
+                        <option disabled="" selected=""> Zamena </option>
+                        <option>Sve</option>
+                        <option> DA </option>
+                        <option> NE </option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-lg-2 col-sm-6">
+                <div class="form-group">
+                    <label for="kilometrazaOd">Kilometraža od</label>
+                    <input type="number" class="form-control" id="kilometrazaOd" min="0" name="kilometrazaOd" ngModel
+                        #kilometrazaOd="ngModel">
+                </div>
+            </div>
+            <div class="col-lg-2 col-sm-6">
+                <div class="form-group">
+                    <label for="kilometrazaDo">Kilometraža do</label>
+                    <input type="number" class="form-control" id="kilometrazaDo" min="0" name="kilometrazaDo" ngModel
+                        #kilometrazaDo="ngModel">
+                </div>
+            </div>
+        </div>
+
+
+        <div class="row align-items-center">
+
+            <div class="col-lg-2 col-sm-6">
+                <div class="form-group">
+                    <label for="kubikazaOd">Kubikaža od</label>
+                    <input type="number" class="form-control" id="kubikazaOd" min="0" name="kubikazaOd" ngModel
+                        #kubikazaOd="ngModel">
+                </div>
+            </div>
+            <div class="col-lg-2 col-sm-6">
+                <div class="form-group">
+                    <label for="kubikazaDo">Kubikaža do</label>
+                    <input type="number" class="form-control" id="kubikazaDo" min="0" name="kubikazaDo" ngModel
+                        #kubikazaDo="ngModel">
+                </div>
+            </div>
+            <div class="col-lg-2 col-sm-6">
+                <div class="form-group">
+                    <label for="ksOd">Konjske snage od</label>
+                    <input type="number" class="form-control" id="ksOd" min="0" name="ksOd" ngModel #ksOd="ngModel">
+                </div>
+            </div>
+            <div class="col-lg-2 col-sm-6">
+                <div class="form-group">
+                    <label for="ksDo">Konjske snage do</label>
+                    <input type="number" class="form-control" id="ksDo" min="0" name="ksDo" ngModel #ksDo="ngModel">
+                </div>
+            </div>
+            <div class="col-lg-4 col-sm-6">
+                <div class="form-group">
+                    <label for="fiksnaCena"> Fiksna cena </label>
+                    <select class="form-control" id="fiksnaCena" name="fiksnaCena" ngModel #fiksnaCena="ngModel">
+                        <option disabled="" selected=""> Fiksna cena </option>
+                        <option>Sve</option>
+                        <option> Cena je fiksna </option>
+                        <option> Cena nije fiksna </option>
+                    </select>
+                </div>
+            </div>
+
+        </div>
+
+
+        <div class="row">
+            <div class="col-lg text-center">
+                <button type="submit" class="btn btn-primary btn-lg" id="searchButton">Traži</button>
+            </div>
+        </div>
+
+    </form>
+</div>

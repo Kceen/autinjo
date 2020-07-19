@@ -1,0 +1,108 @@
+<app-header></app-header>
+
+<div *ngFor="let auto of autos">
+    <div class="row align-items-center" id="firstContentRow">
+        <div class="col-lg-10 p-0">
+            <div id="controls" class="carousel slide" data-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img class="d-block w-100" src="{{auto.thumbnailPath}}" style="width: 25%;">
+                    </div>
+
+                    <div class="carousel-item" *ngFor="let slika of auto.slikas">
+                        <img class="d-block w-100" src="{{slika.path}}">
+                    </div>
+
+                </div>
+                <a class="carousel-control-prev" href="#controls" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span> <span
+                        class="sr-only">Previous</span>
+                </a> <a class="carousel-control-next" href="#controls" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span> <span
+                        class="sr-only">Next</span>
+                </a>
+            </div>
+        </div>
+
+        <div class="col-lg-2 mt-lg-0 mt-sm-3 mb-sm-3 text-center p-0">
+
+            <h3 class="mainPriceText" *ngIf="auto.cena > 0"> {{auto.cena | number}} € </h3>
+            <h3 class="mainPriceText" *ngIf="auto.cena == 0"> Po dogovoru </h3>
+            <h3 class="mainPriceText" *ngIf="auto.cena == -1"> Na upit </h3>
+
+            <p class="lead" style="background-color: #e8e8e8">{{auto.stanje}}
+            </p>
+            <p class="lead">{{auto.marka}}</p>
+            <p class="lead" style="background-color: #e8e8e8">{{auto.model}}</p>
+            <p class="lead">{{auto.godiste}}. godište</p>
+            <p class="lead" style="background-color: #e8e8e8"> {{auto.kilometraza | number}} km </p>
+            <p class="lead">{{auto.karoserija}}</p>
+            <p class="lead" style="background-color: #e8e8e8">{{auto.gorivo}} </p>
+            <p class="lead">{{auto.kubikaza}} cm3</p>
+            <p class="lead" style="background-color: #e8e8e8">{{auto.ks}} KS</p>
+            <p class="lead">{{auto.fiksnaCena}}</p>
+            <p class="lead" style="background-color: #e8e8e8"> Zamena:{{auto.zamena}}</p>
+
+        </div>
+    </div>
+
+    <div class="row border-left border-right border-bottom p-2">
+        <div class="col-lg-6 text-lg-left col-sm-12 text-md-center">
+            <p class="lead">
+                Oglas dodat: <span class="font-weight-bold"> {{auto.datumPostavljanja | date:'dd.MM.yyyy'}} </span>
+            </p>
+        </div>
+        <div class="col-lg-6 text-lg-right col-sm-12 text-md-center">
+            <p class="lead">
+                Oglas dodao korisnik: <span [routerLink]="['/user', auto.korisnik.idKorisnik]" class="font-weight-bold"
+                    id="userLink">
+                    {{auto.korisnik.username}} </span>
+            </p>
+        </div>
+    </div>
+
+
+    <div *ngIf="auto.karakteristike" class="row border-right border-left border-bottom pb-2 p-1">
+        <div class="col-lg-12 text-center mb-2">
+            <p class="naslovOsobineVozilaP">Karakteristike</p>
+        </div>
+        <div *ngFor="let k of karakteristikeArray" class="col-lg-3 col-md-6">
+            <p> {{ k.split(":")[0] }} : <span class="osobineVozilaPoljeSpan"> {{ k.split(":")[1] }} </span> </p>
+        </div>
+    </div>
+
+    <div *ngIf="auto.sigurnost" class="row border-right border-left border-bottom pb-2 p-1">
+        <div class="col-lg-12 text-center mb-2">
+            <p class="naslovOsobineVozilaP">Sigurnost</p>
+        </div>
+        <div class="col-lg-3 col-md-6" *ngFor="let s of auto.sigurnost.split(',')">
+            <p> {{ s }} </p>
+        </div>
+    </div>
+    <div *ngIf="auto.oprema" class="row border-right border-left border-bottom pb-2 p-1">
+        <div class="col-lg-12 text-center mb-2">
+            <p class="naslovOsobineVozilaP">Oprema</p>
+        </div>
+        <div class="col-lg-3 col-md-6" *ngFor="let o of auto.oprema.split(',')">
+            <p> {{ o }} </p>
+        </div>
+    </div>
+    <div *ngIf="auto.stanjeLista" class="row border-right border-left border-bottom pb-2 p-1">
+        <div class="col-lg-12 text-center mb-2">
+            <p class="naslovOsobineVozilaP">Stanje</p>
+        </div>
+        <div class="col-lg-3 col-md-6" *ngFor="let s of auto.stanjeLista.split(',')">
+            <p> {{ s }} </p>
+        </div>
+    </div>
+    <div *ngIf="auto.opis" class="row border-right border-left border-bottom pb-2 p-1">
+        <div class="col-lg-12 text-center mb-2">
+            <p class="naslovOsobineVozilaP">Opis</p>
+        </div>
+        <div class="col-lg-12 text-left mb-2">
+            <span *ngFor="let o of auto.opis.split(',')"> {{ o }} </span>
+        </div>
+    </div>
+</div>
+
+<app-footer></app-footer>

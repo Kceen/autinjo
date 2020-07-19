@@ -1,0 +1,59 @@
+<!-- SIMPLE SEARCH FORM -->
+
+<div class="row">
+  <form class="filterForm p-3" style="width: 100%" #form="ngForm" (ngSubmit)="onSubmit(form)">
+    <div class="row align-items-center">
+      <div class="col-lg col-sm-6">
+        <div class="form-group">
+          <label for="marka">Marka</label>
+          <select class="form-control" id="marka" name="marka" ngModel #marka="ngModel" (change)="onChange(marka)">
+            <option disabled="" selected="">Izaberi marku</option>
+            <option *ngFor="let brand of allBrands"> {{ brand }} </option>
+          </select>
+        </div>
+      </div>
+      <div class="col-lg col-sm-6">
+        <div class="form-group">
+          <label for="model">Model</label>
+          <select class="form-control" id="model" name="model" ngModel>
+            <option disabled="" selected="">Izaberi model</option>
+            <option>A Klasa</option>
+            <option>B Klasa</option>
+            <option>C Klasa</option>
+            <option>E Klasa</option>
+            <option>S Klasa</option>
+          </select>
+        </div>
+      </div>
+      <div class="col-lg col-sm-6">
+        <div class="form-group">
+          <label for="cenaDo">Cena do</label>
+          <input type="number" class="form-control" id="cenaDo" min="0" step="10" name="cenaDo" ngModel>
+        </div>
+      </div>
+      <div class="col-lg col-sm-6">
+        <div class="form-group">
+          <label for="godisteOd">Godište od</label>
+          <input type="number" class="form-control" id="godisteOd" min="1900" max="2020" name="godisteOd" ngModel>
+        </div>
+      </div>
+    </div>
+
+
+
+
+    <div class="row">
+      <div class="col-lg text-center mb-3">
+        <button type="submit" class="btn btn-primary btn-lg" id="searchButton">Traži</button>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg text-center">
+        <a class="btn btn-outline-dark text-white" role="button" [routerLink]="['/home-detail']"> Detaljna pretraga </a>
+      </div>
+    </div>
+
+
+  </form>
+</div>

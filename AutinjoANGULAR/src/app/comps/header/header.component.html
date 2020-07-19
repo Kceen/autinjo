@@ -1,0 +1,35 @@
+<!-- NAVIGATION WITH LOGO AND BUTTONS -->
+
+<div class="row align-items-center p-2" id="navbar">
+    <div class="col-xl-3 col-lg-4 text-center">
+        <h1 class="navMainLogo"> <a [routerLink]="['']"> autinjo.rs </a> </h1>
+    </div>
+
+    <div class="col-lg">
+        <p class="lead font-italic"> Najveći izbor novih i polovnih automobila u Srbiji </p>
+    </div>
+
+
+
+    <div *ngIf="loggedInUser" class="col-xl-1 col-lg-2 m-lg-0 col-md-6 mt-sm-1 mb-sm-1 m-sm-0 col-sm-6 col-12 m-2 text-center">
+        <p> <a [routerLink]="['/user', loggedInUser.idKorisnik]"> {{ loggedInUser.username }} </a> </p>
+    </div>
+
+    <div *ngIf="loggedInUser" class="col-xl-1 col-lg-2 m-lg-0 col-md-6 mt-sm-1 mb-sm-1 m-sm-0 col-sm-6 col-12 m-2 text-center">
+        <p> <a [routerLink]="['/add-auto']"> Dodaj oglas </a> </p>
+    </div>
+
+    <div *ngIf="!loggedIn" class="col-xl-1 col-lg-2 m-lg-0 col-md-6 mt-sm-1 mb-sm-1 m-sm-0 col-sm-6 col-12 m-2 text-center">
+        <button type="button" class="btn btn-warning" [routerLink]="['/register']"> Registruj se </button>
+    </div>
+
+    <div *ngIf="!loggedIn" class="col-xl-1 col-lg-2 m-lg-0 col-md-6 mt-sm-1 mb-sm-1 m-sm-0 col-sm-6 col-12 m-2 text-center">
+        <button type="button" class="btn btn-warning" [routerLink]="['/login']"> Uloguj se</button>
+    </div>
+    <div *ngIf="loggedIn" class="col-xl-1 col-lg-2 m-lg-0 col-md-6 mt-sm-1 mb-sm-1 m-sm-0 col-sm-6 col-12 m-2 text-center">
+        <button type="button" class="btn btn-warning" (click)="logout()" > Odjavi se </button>
+    </div>
+</div>
+
+
+<!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->

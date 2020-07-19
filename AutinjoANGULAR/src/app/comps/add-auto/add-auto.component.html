@@ -1,0 +1,328 @@
+<app-header></app-header>
+
+<div class="row">
+
+    <form class="filterForm p-3" style="width: 100%" #form="ngForm" (ngSubmit)="onSubmit(form)">
+        <div class="row align-items-center">
+
+            <div class="col-12 text-center">
+                <h1> POSTAVI NOVI OGLAS </h1>
+            </div>
+
+            <div class="col-12 text-center border-bottom border-dark mb-4">
+                <h2> Osnovni podaci </h2>
+            </div>
+
+            <div class="col-lg-3 col-sm-6">
+                <div class="form-group">
+                    <label for="marka">Marka</label>
+                    <select class="form-control" id="marka" name="marka" ngModel #marka="ngModel" required>
+                        <option disabled selected>Izaberi marku</option>
+                        <option *ngFor="let brand of allBrands"> {{ brand }} </option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-lg-3 col-sm-6">
+                <div class="form-group">
+                    <label for="model">Model</label>
+                    <input type="text" class="form-control" id="model" name="model" ngModel #model="ngModel" required>
+                </div>
+            </div>
+            <div class="col-lg-3 col-sm-6">
+                <div class="form-group">
+                    <label for="cena">Cena</label>
+                    <input type="number" class="form-control" id="cena" min="0" step="10" name="cena" ngModel
+                        #cena="ngModel" required>
+                </div>
+            </div>
+            <div class="col-lg-3 col-sm-6">
+                <div class="form-group">
+                    <label for="godiste">Godište</label>
+                    <input type="number" class="form-control" id="godiste" min="1900" max="2020" name="godiste" ngModel
+                        #godiste="ngModel" required>
+                </div>
+            </div>
+
+        </div>
+
+
+        <div class="row align-items-center">
+            <div class="col-lg-3 col-sm-6">
+                <div class="form-group">
+                    <label for="gorivo">Gorivo</label>
+                    <select class="form-control" id="gorivo" name="gorivo" ngModel #gorivo="ngModel" required>
+                        <option disabled="" selected="">Izaberi gorivo</option>
+                        <option>Benzin</option>
+                        <option>Dizel</option>
+                        <option>Benzin + Gas(TNG)</option>
+                        <option>Metan CNG</option>
+                        <option>Električni pogon</option>
+                        <option>Hibridni pogon</option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-lg-3 col-sm-6">
+                <div class="form-group">
+                    <label for="model">Stanje</label>
+                    <select class="form-control" id="stanje" name="stanje" ngModel #stanje="ngModel" required>
+                        <option disabled="" selected="">Izaberi stanje</option>
+                        <option>Novo vozilo</option>
+                        <option>Polovno vozilo</option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-lg-3 col-sm-6">
+                <div class="form-group">
+                    <label for="karoserija">Karoserija</label>
+                    <select class="form-control" id="karoserija" name="karoserija" ngModel #karoserija="ngModel"
+                        required>
+                        <option disabled="" selected="">Izaberi karoseriju</option>
+                        <option>Limuzina</option>
+                        <option>Hečbek</option>
+                        <option>Karavan</option>
+                        <option>Kupe</option>
+                        <option>Kabriolet/Roadster</option>
+                        <option>Monovolumen(Minivan)</option>
+                        <option>Džip/SUV</option>
+                        <option>Pickup</option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-lg-3 col-sm-6">
+                <div class="form-group">
+                    <label for="karoserija">Zamena</label>
+                    <select class="form-control" id="zamena" name="zamena" ngModel #zamena="ngModel" required>
+                        <option disabled="" selected=""> Zamena </option>
+                        <option> DA </option>
+                        <option> NE </option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="row align-items-center mb-2">
+            <div class="col-lg-3 col-sm-6">
+                <div class="form-group">
+                    <label for="kilometraza">Kilometraža</label>
+                    <input type="number" class="form-control" id="kilometraza" min="0" name="kilometraza" ngModel
+                        #kilometraza="ngModel" required>
+                </div>
+            </div>
+            <div class="col-lg-3 col-sm-6">
+                <div class="form-group">
+                    <label for="kubikaza">Kubikaža</label>
+                    <input type="number" class="form-control" id="kubikaza" min="0" name="kubikaza" ngModel
+                        #kubikaza="ngModel" required>
+                </div>
+            </div>
+
+            <div class="col-lg-3 col-sm-6">
+                <div class="form-group">
+                    <label for="ks">Konjske snage</label>
+                    <input type="number" class="form-control" id="ks" min="0" name="ks" ngModel #ks="ngModel" required>
+                </div>
+            </div>
+
+            <div class="col-lg-3 col-sm-6">
+                <div class="form-group">
+                    <label for="fiksnaCena"> Fiksna cena </label>
+                    <select class="form-control" id="fiksnaCena" name="fiksnaCena" ngModel #fiksnaCena="ngModel"
+                        required>
+                        <option disabled="" selected=""> Fiksna cena </option>
+                        <option> Cena je fiksna </option>
+                        <option> Cena nije fiksna </option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- SIGURNOST -->
+
+        <div class="row align-items-center h5">
+            <div class="col-12 text-center border-bottom border-dark mb-4">
+                <h2> Sigurnost </h2>
+            </div>
+
+            <div class="col-lg-3 col-sm-6">
+                <div class="form-group">
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="airbagVozac" name="airbagVozac"
+                            value="Airbag za vozaca" ngModel #airbagVozac="ngModel">
+                        <label class="form-check-label" for="airbagVozac">
+                            Airbag za vozača
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-sm-6">
+                <div class="form-group">
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="airbagSuvozac" name="airbagSuvozac" ngModel
+                            #airbagSuvozac="ngModel">
+                        <label class="form-check-label" for="airbagSuvozac">
+                            Airbag za suvozača
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-sm-6">
+                <div class="form-group">
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="bocniAirbag" name="bocniAirbag" ngModel
+                            #bocniAirbag="ngModel">
+                        <label class="form-check-label" for="bocniAirbag">
+                            Bočni airbag
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-sm-6">
+                <div class="form-group">
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="childLock" name="childLock" ngModel
+                            #childLock="ngModel">
+                        <label class="form-check-label" for="childLock">
+                            Child lock
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+        <!-- OPREMA -->
+
+        <div class="row align-items-center h5">
+            <div class="col-12 text-center border-bottom border-dark mb-4">
+                <h2> Oprema </h2>
+            </div>
+
+            <div class="col-lg-3 col-sm-6">
+                <div class="form-group">
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="navigacija" name="navigacija" ngModel
+                            #navigacija="ngModel">
+                        <label class="form-check-label" for="navigacija">
+                            Navigacija
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-sm-6">
+                <div class="form-group">
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="bluetooth" name="bluetooth" ngModel
+                            #bluetooth="ngModel">
+                        <label class="form-check-label" for="bluetooth">
+                            Bluetooth
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-sm-6">
+                <div class="form-group">
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="elektricniProzori" name="elektricniProzori"
+                            ngModel #elektricniProzori="ngModel">
+                        <label class="form-check-label" for="elektricniProzori">
+                            Električni prozori
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-sm-6">
+                <div class="form-group">
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="naslonZaRuku" name="naslonZaRuku" ngModel
+                            #naslonZaRuku="ngModel">
+                        <label class="form-check-label" for="naslonZaRuku">
+                            Naslon za ruku
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+        <!-- STANJE -->
+
+        <div class="row align-items-center h5">
+            <div class="col-12 text-center border-bottom border-dark mb-4">
+                <h2> Stanje </h2>
+            </div>
+
+            <div class="col-lg-3 col-sm-6">
+                <div class="form-group">
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="prviVlasnik" name="prviVlasnik" ngModel
+                            #prviVlasnik="ngModel">
+                        <label class="form-check-label" for="prviVlasnik">
+                            Prvi vlasnik
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-sm-6">
+                <div class="form-group">
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="Garaziran" name="Garaziran" ngModel
+                            #Garaziran="ngModel">
+                        <label class="form-check-label" for="Garaziran">
+                            Garažiran
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-sm-6">
+                <div class="form-group">
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="kupljenNovUSrbiji" name="kupljenNovUSrbiji"
+                            ngModel #kupljenNovUSrbiji="ngModel">
+                        <label class="form-check-label" for="kupljenNovUSrbiji">
+                            Kupljen nov u Srbiji
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-sm-6">
+                <div class="form-group">
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="rezervniKljuc" name="rezervniKljuc" ngModel
+                            #rezervniKljuc="ngModel">
+                        <label class="form-check-label" for="rezervniKljuc">
+                            Rezervni ključ
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="row align-items-center">
+            <div class="col-12 text-center border-bottom border-dark mb-4">
+                <h2> Opis </h2>
+            </div>
+
+            <div class="col-12">
+                <div class="form-group">
+                    <label for="opis">Opis</label>
+                    <textarea class="form-control" rows="5" id="opis" name="opis" ngModel #opis="ngModel"></textarea>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="row">
+            <div class="col-lg text-center">
+                <button type="submit" class="btn btn-primary btn-lg" [disabled]="form.invalid">Postavi oglas i dodaj slike</button>
+            </div>
+        </div>
+
+    </form>
+</div>
+
+<app-footer></app-footer>

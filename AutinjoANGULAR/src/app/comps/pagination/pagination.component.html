@@ -1,0 +1,28 @@
+<!--  PAGINATION -->
+
+<div class="row justify-content-center p-3" id="paginationRow">
+    <ul class="pagination m-0">
+
+
+        <li class="page-item disabled" *ngIf="pageNumber == 0"><span class="page-link">Prethodna</span>
+        </li>
+
+
+        <li class="page-item" *ngIf="pageNumber > 0" (click)="onPageDown(pageNumber)"><a class="page-link">Prethodna</a>
+        </li>
+
+
+        <li class="page-item active"><span class="page-link">
+                {{ pageNumber + 1 }} <span class="sr-only">(current)</span>
+            </span></li>
+
+
+        <li class="page-item disabled" *ngIf=""><span class="page-link">Sledeća</span>
+        </li>
+
+        <li class="page-item" (click)="onPageUp(pageNumber)"> <a class="page-link">
+                Sledeća</a>
+        </li>
+
+    </ul>
+</div>

@@ -1,0 +1,121 @@
+<app-header></app-header>
+
+<div class="row text-center" id="loginFormDiv">
+
+    <div class="col-12">
+        <h1> REGISTRACIJA </h1>
+    </div>
+
+    <form #form="ngForm" class="border-bottom border-dark pb-5" style="width: 100%" (ngSubmit)="onSubmit(form)">
+        <div class="col-12">
+            <div class="form-group">
+                <label for="username">Username*</label>
+                <input type="text" class="form-control" id="username" placeholder="Username" name="username" ngModel
+                    #username="ngModel" required>
+                <small *ngIf="username.invalid && username.touched" id="usernameHelp" class="form-text text-muted">
+                    Username je obavezno </small>
+            </div>
+        </div>
+
+
+        <div class="col-12">
+            <div class="form-group">
+                <label for="password">Password*</label>
+                <input type="password" class="form-control" id="password" placeholder="Password" name="password" ngModel
+                    #password="ngModel" required>
+                <small *ngIf="password.invalid && password.touched" id="passwordHelp" class="form-text text-muted">
+                    Password je obavezan </small>
+            </div>
+        </div>
+
+        <div class="col-12">
+            <div class="form-group">
+                <label for="password2">Ponovi password*</label>
+                <input type="password" class="form-control" id="password2" placeholder="Ponovi password"
+                    name="password2" ngModel #password2="ngModel" required>
+                <small *ngIf="password.value != password2.value" id="passwordHelp" class="form-text text-muted">
+                    Passwordi nisu isti </small>
+            </div>
+        </div>
+
+        <div class="col-12">
+            <div class="form-group">
+                <label for="ime">Ime firme/auto-placa</label>
+                <input type="text" class="form-control" id="ime" placeholder="Firma/auto-plac" name="ime" ngModel
+                    #ime="ngModel">
+            </div>
+        </div>
+
+        <div class="col-12">
+            <div class="form-group">
+                <label for="ime">Broj telefona*</label>
+                <input type="number" class="form-control" id="brojTelefona" placeholder="Broj telefona"
+                    name="brojTelefona" ngModel #brojTelefona="ngModel" required>
+                <small *ngIf="brojTelefona.invalid && brojTelefona.touched" id="usernameHelp"
+                    class="form-text text-muted">
+                    Broj telefona je obavezan </small>
+            </div>
+        </div>
+
+        <div class="col-12">
+            <div class="form-group">
+                <label for="email">E-mail</label>
+                <input type="email" class="form-control" id="email" placeholder="E-mail" name="email" ngModel
+                    #email="ngModel">
+            </div>
+        </div>
+
+        <div class="col-12">
+            <div class="form-group">
+                <label for="lokacija">Lokacija</label>
+                <input type="text" class="form-control" id="lokacija" placeholder="Lokacija" name="lokacija" ngModel
+                    #lokacija="ngModel">
+            </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-lg"
+            [disabled]="form.invalid || password.value != password2.value ">Register</button>
+    </form>
+
+    <div class="col text-center">
+        <h1 class="navMainLogoLogin"> autinjo.rs </h1>
+    </div>
+    <div>
+        <p class="lead font-italic"> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam purus elit, maximus in
+            eleifend at, tincidunt quis urna. Nam vel mauris aliquet, ornare velit non, maximus ipsum. Integer in arcu
+            ac nisl
+            interdum commodo. Ut feugiat scelerisque est, non pellentesque lorem mollis accumsan. Interdum et malesuada
+            fames
+            ac ante ipsum primis in faucibus. Donec rhoncus, sem vitae imperdiet gravida, orci tortor mollis mi, sit
+            amet
+            convallis libero est eget lorem. Donec arcu nisl, volutpat non venenatis eu, semper id neque. Morbi
+            elementum
+            felis nec finibus euismod. Donec quis felis in velit tincidunt eleifend. <br> <br>
+
+            Etiam eget ligula eget lacus blandit efficitur. Nunc tincidunt mattis arcu, sit amet elementum risus ornare
+            non.
+            Mauris in lectus vel augue congue mollis. Sed quis ligula massa. Duis tempus quis felis id consequat.
+            Curabitur
+            cursus neque quis arcu vehicula, in eleifend nulla sagittis. Curabitur sed tellus ante. <br> <br>
+
+            Donec non semper turpis, id viverra quam. Proin finibus vestibulum leo, eget auctor tortor aliquam at.
+            Curabitur
+            consectetur augue vitae ipsum ultricies, nec dictum nunc accumsan. Integer ex ante, consequat nec molestie
+            vel,
+            feugiat in nulla. Donec non semper est. Praesent semper, nibh eu pulvinar porta, ligula leo sagittis nulla,
+            a
+            aliquam mi diam ac tortor. Etiam at quam at orci suscipit feugiat. Sed vel metus non turpis condimentum
+            malesuada
+            id vitae neque. Donec imperdiet enim dolor, scelerisque tincidunt dolor dapibus et. Vivamus ultricies urna
+            semper
+            odio ultricies feugiat. Sed tincidunt ipsum sed ligula mattis, in luctus nulla luctus. Morbi at dapibus
+            orci.
+            Curabitur tempus vulputate nunc, sed semper enim lobortis nec. Nullam feugiat semper leo ac facilisis.
+            Quisque
+            cursus sed eros at pellentesque.
+        </p>
+    </div>
+
+</div>
+
+<app-footer></app-footer>

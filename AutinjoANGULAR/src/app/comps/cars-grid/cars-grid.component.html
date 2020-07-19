@@ -1,0 +1,24 @@
+<app-detail-search (searchEmitter)="search($event)"></app-detail-search>
+
+<div class="row" id="mainCarsRow">
+    <div class="row ml-0 mr-0">
+        <div *ngFor="let auto of autos | async" class="col-lg-4 col-md-6 text-center border-bottom pb-2">
+            <a [routerLink]="['/autoDetail', auto.idAutomobil]">
+                <p class="lead" id="marka-model"> {{ auto.marka }} {{ auto.model }} </p>
+                <img src="{{auto.thumbnailPath}}" width="100%" class="carThumbnail">
+
+                <span class="lead" id="price" *ngIf="auto.cena > 0" style="text-shadow: 2px 2px black;"> {{auto.cena | number}} € </span>
+                <span class="lead" id="price" *ngIf="auto.cena == 0" style="text-shadow: 2px 2px black;"> Po dogovoru </span>
+                <span class="lead" id="price" *ngIf="auto.cena == -1" style="text-shadow: 2px 2px black;"> Na upit </span> -
+
+                <span *ngIf="auto.stanje == 'Novo vozilo'" class="lead font-weight-bold text-success" style="text-shadow: 2px 2px black;"> NOVO </span>
+                <span *ngIf="auto.stanje == 'Polovno vozilo'" class="lead"> {{auto.kilometraza | number}} km </span> -
+                <span class="lead"> {{auto.gorivo}} </span> -
+                <span class="lead"> {{auto.godiste}} </span>
+                <p class="lead" id="detailsLink">Detaljnije</p>
+            </a>
+        </div>
+    </div>
+</div>
+
+<app-pagination (pageNumberEmmiter)="getAutos($event)"></app-pagination>
